@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finger Paint</title>
+    <style>
+        body { margin: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh; background-color: #f0f0f0; }
+        .container { position: relative; margin-bottom: 10px; } /* Added margin for button */
+        #videoFeed {
+            transform: scaleX(-1); /* Mirror mode */
+            border: 1px solid black;
+        }
+        #drawingCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: scaleX(-1); /* Mirror mode to match video */
+        }
+        #controls { margin-top: 10px; } /* Style for controls container */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <video id="videoFeed" autoplay playsinline muted width="640" height="480"></video>
+        <canvas id="drawingCanvas" width="640" height="480"></canvas>
+    </div>
+    <div id="controls">
+        <button id="clearButton">Clear Drawing</button>
+    </div>
+
+    <!-- TensorFlow.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+    <!-- COCO-SSD Model (for object detection) -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd@latest/dist/coco-ssd.min.js"></script>
+
+    <!-- Application Script -->
+    <script src="app.js"></script>
+</body>
+</html>
